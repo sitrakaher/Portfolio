@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./backendPortfolio
+    container_name: backend
+    env_file: ./backendPortfolio/.env
+    ports:
+      - "4000:4000"
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    env_file: ./frontend/.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

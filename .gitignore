@@ -1,0 +1,46 @@
+# =====================
+# Node.js / backend
+# =====================
+node_modules
+npm-debug.log
+.env
+
+# Prisma
+.prisma/client
+prisma/.env
+
+# =====================
+# Next.js / frontend
+# =====================
+.next
+out
+build
+dist
+
+# =====================
+# Docker
+# =====================
+docker-compose.override.yml
+# ne pas ignorer Dockerfile ! il est nécessaire pour CI/CD
+# Docker volumes / tmp
+tmp
+*.pid
+
+# =====================
+# Logs
+# =====================
+logs
+*.log
+
+# =====================
+# OS files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# IDE / Editor
+# =====================
+.vscode
+.idea
+*.swp

@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique
+  password String
+  role  Role @default(PUBLIC)
+}
+
+model Technologies {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  href String
+  description String?
+  level  Int
+  isFavorite Boolean @default(false)
+  projectsIds String[] @db.ObjectId
+  projects Projects[] @relation(fields:[projectsIds], references:[id])
+}
+
+model Projects {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  github  String
+  lienProjet String
+  description String?
+  image String
+  type Type @default(PORTFOLIO)
+  technologieIds String[] @db.ObjectId
+  technologies Technologies[] @relation(fields:[technologieIds], references:[id])
+}
+
+model Contacts {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String
+  message String?
+  objet String?
+  isRead Boolean @default(false)
+  isReplied Boolean @default(false)
+  createdAt DateTime? @default(now())
+}
+
+enum Role {
+  ADMIN
+  PUBLIC
+}
+
+enum Type {
+  PORTFOLIO
+  LOCAL
+  ONLINE
+}
