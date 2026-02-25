@@ -4,11 +4,11 @@
   <a href="http://portfolio.test">
     <img src="https://img.shields.io/badge/🌐_Live_Demo-Portfolio-blue?style=for-the-badge" />
   </a>
-  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" />
-  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript" />
-  <img src="https://img.shields.io/badge/TailwindCSS-3-38B2AC?style=for-the-badge&logo=tailwindcss" />
-  <img src="https://img.shields.io/badge/Node.js-20-339933?style=for-the-badge&logo=node.js" />
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/TypeScript-6-3178C6?style=for-the-badge&logo=typescript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-4.1-38B2AC?style=for-the-badge&logo=tailwindcss" />
+  <img src="https://img.shields.io/badge/Node.js-24-339933?style=for-the-badge&logo=node.js" />
   <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express" />
   <img src="https://img.shields.io/badge/Prisma-ORM-2D3748?style=for-the-badge&logo=prisma" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb" />
