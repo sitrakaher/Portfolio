@@ -3,15 +3,17 @@ FROM node:24-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
 # Copier Prisma config et schema pour npm install/postinstall
+RUN npm install
 COPY prisma ./prisma
 COPY prisma.config.ts ./
-RUN npm install
 
 # 2️⃣ Stage build
 FROM node:24-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 RUN npx prisma generate
 
 # 3️⃣ Stage production
