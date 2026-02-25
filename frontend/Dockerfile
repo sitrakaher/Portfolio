@@ -5,43 +5,42 @@ FROM node:24-alpine AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
-COPY prisma ./prisma
-RUN npm ci --omit=dev
+RUN npm ci
 
 # ─────────────────────────────────────────
-# Stage 2 – Builder (génère le Prisma client)
+# Stage 2 – Builder
 # ─────────────────────────────────────────
 FROM node:24-alpine AS builder
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
-RUN npm ci
-
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Génère le Prisma client
-RUN npx prisma generate
+# Variables d'environnement nécessaires au build
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
+RUN npm run build
 
 # ─────────────────────────────────────────
-# Stage 3 – Runner
+# Stage 3 – Runner (image finale légère)
 # ─────────────────────────────────────────
 FROM node:24-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 
+# Crée un user non-root pour la sécurité
 RUN addgroup --system --gid 1001 nodejs && \
-    adduser  --system --uid 1001 expressjs
+    adduser  --system --uid 1001 nextjs
 
-# Copie uniquement les dépendances de prod + le client Prisma généré
-COPY --from=deps    /app/node_modules          ./node_modules
-COPY --from=builder /app/node_modules/.prisma  ./node_modules/.prisma
-COPY --from=builder /app/prisma                ./prisma
-COPY --chown=expressjs:nodejs . .
+COPY --from=builder /app/public        ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static     ./.next/static
 
-USER expressjs
+USER nextjs
 
-EXPOSE 4000
-ENV PORT 4000
+EXPOSE 3000
+ENV PORT 3000
 
-CMD ["node", "src/index.js"]
+CMD ["node", "server.js"]

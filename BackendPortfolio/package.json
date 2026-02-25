@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "star":"node src/server/app.js",
+    "star": "node src/server/app.js",
     "dev": "nodemon app.js",
     "postinstall": "prisma generate"
   },
@@ -15,6 +15,7 @@
   "dependencies": {
     "@prisma/client": "^6.19.2",
     "bcrypt": "^6.0.0",
+    "ci": "^2.3.0",
     "compression": "^1.8.1",
     "cors": "^2.8.6",
     "crypto": "^1.0.1",
@@ -31,7 +32,7 @@
     "prisma": "^6.19.2",
     "zod": "^4.3.6"
   },
-  "prisma" :{
+  "prisma": {
     "seed": "node prisma/createAdmin.js"
   }
 }
