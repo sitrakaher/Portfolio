@@ -16,7 +16,7 @@ COPY . .
 # Variables pour Prisma au build
 ARG DATABASE_URL
 ARG JWT_SECRET
-ENV DATABASE_URL=${DATABASE_URL:-"mongodb://redacted:redacted@localhost:27017/db"}
+ENV DATABASE_URL=${DATABASE_URL}
 ENV JWT_SECRET=$JWT_SECRET
 
 # Générer Prisma Client

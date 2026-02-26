@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -6,6 +7,7 @@ const pinoHttp = require('pino-http');
 const { logger } = require('../lib/logger');
 const PORT = process.env.PORT || 4000;
 const allowedOrigin ='http://localhost:3000';
+
 
 const app = express();
 

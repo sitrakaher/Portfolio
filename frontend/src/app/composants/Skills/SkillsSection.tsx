@@ -58,15 +58,13 @@ export default function SkillsSection() {
         setSkills(res.data);
       } catch (err) {
         console.error(err);
-        setError("Erreur lors du chargement des compétences");
+        setError("Erreur lors du chargement des compétences favoris");
       } finally {
         setLoading(false);
       }
     };
     fetchSkills();
   }, []);
-
-  if (error) return <p className="text-center py-20 text-red-500">{error}</p>;
 
   return (
   <section id="competences"  className="relative scroll-mt-20">
@@ -90,7 +88,7 @@ export default function SkillsSection() {
             <p>Chargement des compétences favoris..</p>
           </div>
       ): error? (
-        <p className="text-center py-20 text-shadow-red-500">{error}</p>
+        <p className="text-center py-20 text-red-500">{error}</p>
       ):(
         <SkillsCircle skills={skills} />
       )}
