@@ -66,11 +66,10 @@ export default function SkillsSection() {
     fetchSkills();
   }, []);
 
-  if (loading) return <p className="text-center py-20">Chargement...</p>;
   if (error) return <p className="text-center py-20 text-red-500">{error}</p>;
 
   return (
-  <div id="competences"  className="relative min-h-svh scroll-mt-20">
+  <section id="competences"  className="relative scroll-mt-20">
     <div className="py-10">
       <motion.div className="flex flex-col text-center"
         initial={{ opacity: 0, scale: 0.7 }}
@@ -86,7 +85,15 @@ export default function SkillsSection() {
     </div>
 
     <div>
-      <SkillsCircle skills={skills} />
+      { loading ? (
+          <div className="h-24 flex items-center justify-center">
+            <p>Chargement des compétences favoris..</p>
+          </div>
+      ): error? (
+        <p className="text-center py-20 text-shadow-red-500">{error}</p>
+      ):(
+        <SkillsCircle skills={skills} />
+      )}
     </div>
 
     <div className="pt-10 p-10">
@@ -112,6 +119,6 @@ export default function SkillsSection() {
         <hr className='absolute md:w-3xl w-xs border'/>
       </span>
     </div>
-  </div>
+  </section>
   )
 }

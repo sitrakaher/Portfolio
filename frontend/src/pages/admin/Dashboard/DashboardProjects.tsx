@@ -3,7 +3,7 @@ import "../../../app/globals.css";
 import React, { useEffect, useState } from 'react'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/router';
-import NavBar from "../../../app/admin/contacts/AdminNavigation/navBar";
+import NavBar from "../AdminNavigation/navBar";
 
 type Projects = {
     id:string,

@@ -30,7 +30,7 @@ export default function RootLayout({
       <body>
         <ToastContainer
           position = "top-center"
-          autoClose = {800}
+          autoClose = {2000}
           transition = {Flip}
         />
         {children}

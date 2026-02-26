@@ -37,13 +37,16 @@ export default function MotionSkill({
         x: x * 40,
         y: y * 40, }}
         
-      animate={isMobile ?(
+      animate=
+      {
+        isMobile ?(
         visible 
           ? { opacity: 1, x: 0, y: 0 }
-          : { opacity: 0, x: x * 30, y: y * 30}) : (visible
+          : { opacity: 0, x: x * 30, y: y * 30}) : (
+            visible
           ? { opacity: 1, x: 0, y: 0 }
-          : { opacity: 0, x: x * 80, y: y * 80})
-      }
+          : { opacity: 0, x: x * 80, y: y * 80}
+        )}
       transition={{
         duration: 0.6,
         ease: "easeOut",
@@ -87,7 +90,7 @@ export default function MotionSkill({
         <label htmlFor="id">
         <Image src={href} alt={title} width={56} height={56} className="rounded-full"/>
         </label>
-        <div className="absolute bg-gray-400/75 h-auto p-4 opacity-0 items-center justify-center flex flex-col group-hover:opacity-100">
+        <div className="absolute bg-gray-400/75 rounded h-auto p-4 opacity-0 items-center justify-center flex flex-col group-hover:opacity-100">
           <h2>{title}</h2>
           <span>{level}%</span>
           <p>{description}</p>

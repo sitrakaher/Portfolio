@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   # ── Frontend – Next.js ───────────────────
   frontend:
@@ -23,6 +21,9 @@ services:
     build:
       context: ./backendPortfolio
       dockerfile: Dockerfile
+      args:
+        DATABASE_URL: ${DATABASE_URL}
+        JWT_SECRET: ${JWT_SECRET}
     container_name: portfolio_backend
     ports:
       - "4000:4000"

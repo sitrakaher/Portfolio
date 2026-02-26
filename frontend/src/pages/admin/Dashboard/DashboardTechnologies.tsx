@@ -3,7 +3,7 @@ import "../../../app/globals.css";
 import { api } from '@/lib/api';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react'
-import NavBar from "../../../app/admin/contacts/AdminNavigation/navBar";
+import NavBar from "../AdminNavigation/navBar";
 
 type Technology = {
     id:string;

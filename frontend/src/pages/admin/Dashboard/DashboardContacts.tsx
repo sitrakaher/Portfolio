@@ -3,7 +3,7 @@ import { api } from '@/lib/api';
 import { useEffect, useState } from 'react'
 import "../../../app/globals.css";
 import { useRouter } from 'next/navigation';
-import NavBar from '../../../app/admin/contacts/AdminNavigation/navBar';
+import NavBar from '../AdminNavigation/navBar';
 
 type Contacts = {
     id:string;

@@ -1,6 +1,6 @@
 "use client"
 import { api } from '@/lib/api';
-import NavBar from '@/app/admin/contacts/AdminNavigation/navBar';
+import NavBar from '@/pages/admin/AdminNavigation/navBar';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react'
 

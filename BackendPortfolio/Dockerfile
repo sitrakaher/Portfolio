@@ -1,47 +1,46 @@
-# ─────────────────────────────────────────
-# Stage 1 – Dependencies
-# ─────────────────────────────────────────
-FROM node:24-alpine AS deps
-WORKDIR /app
-
-COPY package.json package-lock.json* ./
-COPY prisma ./prisma
-RUN npm ci --omit=dev
-
-# ─────────────────────────────────────────
-# Stage 2 – Builder (génère le Prisma client)
-# ─────────────────────────────────────────
+# ── Stage builder ──
 FROM node:24-alpine AS builder
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
+# Copier uniquement package.json + package-lock.json
+COPY package*.json ./
+
+COPY prisma ./prisma/
+
+# Installer toutes les dépendances (dev inclus pour Prisma)
 RUN npm ci
 
+# Copier tout le code (y compris prisma/schema.prisma)
 COPY . .
 
-# Génère le Prisma client
+# Variables pour Prisma au build
+ARG DATABASE_URL
+ARG JWT_SECRET
+ENV DATABASE_URL=${DATABASE_URL:-"mongodb://redacted:redacted@localhost:27017/db"}
+ENV JWT_SECRET=$JWT_SECRET
+
+# Générer Prisma Client
 RUN npx prisma generate
 
-# ─────────────────────────────────────────
-# Stage 3 – Runner
-# ─────────────────────────────────────────
+# ── Stage runner (image finale légère) ──
 FROM node:24-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+ENV PORT=4000
 
+# Créer un utilisateur non-root
 RUN addgroup --system --gid 1001 nodejs && \
-    adduser  --system --uid 1001 expressjs
+    adduser --system --uid 1001 expressjs
 
-# Copie uniquement les dépendances de prod + le client Prisma généré
-COPY --from=deps    /app/node_modules          ./node_modules
-COPY --from=builder /app/node_modules/.prisma  ./node_modules/.prisma
-COPY --from=builder /app/prisma                ./prisma
-COPY --chown=expressjs:nodejs . .
+# Copier seulement ce qui est nécessaire depuis builder
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/package*.json ./
 
 USER expressjs
 
 EXPOSE 4000
-ENV PORT 4000
 
-CMD ["node", "src/index.js"]
+CMD ["node", "src/server/app.js"]

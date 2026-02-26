@@ -65,17 +65,19 @@ const Contact = () => {
   }
 
   const ContactItem = ({icon, type, description}:any)=>(
-    <div>
+    <div className="flex flex-col gap-2 justify-center items-center md:items-start text-center md:text-start">
       <Image src={icon} alt={type} width={32} height={32}/>
-      <span>{type}</span>
-      <span>
-        {type === "PAR EMAIL" ? 
-        (
-          <a href={`mailto:${description}`} className="hover:underline focus:underline">{description}</a>
-          ):(
-          <a href={`tel:${description.replace(/\s+/g, '')}`} className="hover:underline focus:underline">{description}</a>
-        )}
-      </span>
+      <div className="flex flex-col">
+        <span>{type}</span>
+        <span>
+          {type === "PAR EMAIL" ? 
+          (
+            <a href={`mailto:${description}`} className="hover:underline focus:underline">{description}</a>
+            ):(
+            <a href={`tel:${description.replace(/\s+/g, '')}`} className="hover:underline focus:underline">{description}</a>
+          )}
+        </span>
+      </div>
     </div>
   );
   

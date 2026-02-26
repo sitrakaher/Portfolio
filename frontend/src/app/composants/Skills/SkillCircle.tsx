@@ -20,7 +20,7 @@ export default function SkillsCircle({ skills }: SkillsCircleProps) {
 
   const dynamicRadius =   typeof window !== "undefined" && isMobile
       ? 130
-      : width / 3;
+      : width / 2.6;
       
    useEffect(() => {
     const observer = new IntersectionObserver(

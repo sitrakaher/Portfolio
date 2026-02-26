@@ -43,16 +43,16 @@ const Projet = () => {
     },[])
     
   return (
-    <div id='projet' className='flex flex-col min-h-svh justify-center items-center py-20 lg:p-20 lg:px-20'>
+    <section id='projet' className='flex flex-col min-h-svh justify-center items-center py-10 lg:p-10 lg:px-20'>
         <div>
             <div className="flex items-center justify-center gap-4">
                 <Image src="/assets/requirements.png" alt="Réalisations" width={46} height={46}/> 
                 <h2  className='text-3xl font-bold md:text-4xl'>Mes Réalisations</h2>
             </div>           
-            <div  className='flex flex-col md:flex-row gap-10'>
+            <div  className='flex flex-col md:flex-row p-10 gap-10'>
             {loading ? <span className='text-center text-balance md:text-xl'>Chargments des projets encours...</span>: projects.map((projet) =>(
                 <div key={projet.title} className='relative group perspective-midrange'>
-                    <div className='relative min-h-80 origin-bottom rounded-tr-2xl rounded-bl-2xl transition-all duration-500 ease-in-out hover:rotate-x-12 hover:brightness-100 max-w-80 h-auto bg-white flex flex-col justify-between items-center'>
+                    <div className='relative min-h-92 origin-bottom rounded-tr-2xl rounded-bl-2xl transition-all duration-500 ease-in-out hover:rotate-x-12 hover:brightness-100 max-w-80 h-auto bg-white flex flex-col justify-between items-center'>
                         <Image 
                             src={projet.image} 
                             alt='description'
@@ -60,7 +60,7 @@ const Projet = () => {
                             height={512}
                             className='flex justify-center items-center p-6'
                         />
-                        <div className='relative object-contain bg-cyan-950 md:w-full text-white flex flex-col justify-between rounded-bl-2xl min-h-40 overflow-hidden'>
+                        <div className='relative object-contain bg-cyan-950 w-full text-white flex flex-col justify-between rounded-bl-2xl min-h-46 overflow-hidden'>
                             <h2 className='flex items-center justify-center font-semibold text-center p-2'>
                                 {projet.title}
                             </h2>
@@ -94,7 +94,7 @@ const Projet = () => {
                 ))}
             </div>
         </div>
-    </div>
+    </section>
   )
 }
 
