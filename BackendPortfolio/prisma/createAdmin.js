@@ -11,7 +11,10 @@ async function main() {
 
     await prisma.user.upsert({
       where: {email: adminEmail},
-      update:{}, // on ne change rien s'il existe déjà
+      update:{
+        password:password,
+        role:role
+      }, // on ne change rien s'il existe déjà
       create:{
             email: adminEmail,
             password,

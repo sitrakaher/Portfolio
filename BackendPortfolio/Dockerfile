@@ -43,4 +43,6 @@ USER expressjs
 
 EXPOSE 4000
 
-CMD ["node", "src/server/app.js"]
+RUN 
+
+CMD npx prisma db seed && node src/server/app.js
