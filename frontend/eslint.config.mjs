@@ -1,10 +1,9 @@
 // frontend/eslint.config.mjs
-export default {
-  root: true,
-  files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
-  extends: ["next", "next/core-web-vitals"],
-  rules: {
-    // règles custom si besoin
-    extends: "next",
+import next from "eslint-config-next";
+
+export default [
+  {
+    ignores: ["node_modules", ".next"], // ignore les dossiers inutiles
   },
-};
+  ...next,
+];
