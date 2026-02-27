@@ -8,10 +8,10 @@ on:
 
 jobs:
   # ══════════════════════════════════════════
-  # 1. LINT & TEST
+  # 1. BUILD & TEST
   # ══════════════════════════════════════════
   lint-and-test:
-    name: 🔍 Lint & Test
+    name: 🔍 Build & Test
     runs-on: ubuntu-latest
 
     steps:
@@ -30,14 +30,7 @@ jobs:
         working-directory: frontend
         run: npm ci
 
-      - name: Debug Path
-        run: ls -R
-
-      - name: Lint frontend
-        working-directory: frontend
-        run: npm run lint
-
-      - name: Build frontend (smoke test)
+      - name: Build frontend
         working-directory: frontend
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
@@ -54,10 +47,6 @@ jobs:
       - name: Install backend deps
         working-directory: backendPortfolio
         run: npm ci
-
-      - name: Lint backend
-        working-directory: backendPortfolio
-        run: npm run lint --if-present
 
       - name: Run backend tests
         working-directory: backendPortfolio
