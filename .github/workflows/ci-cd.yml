@@ -42,14 +42,14 @@ jobs:
         with:
           node-version: 24
           cache: "npm"
-          cache-dependency-path: backendPortfolio/package-lock.json
+          cache-dependency-path: BackendPortfolio/package-lock.json
 
       - name: Install backend deps
-        working-directory: backendPortfolio
+        working-directory: BackendPortfolio
         run: npm ci
 
       - name: Run backend tests
-        working-directory: backendPortfolio
+        working-directory: BackendPortfolio
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
