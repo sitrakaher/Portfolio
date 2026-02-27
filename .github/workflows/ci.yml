@@ -30,6 +30,9 @@ jobs:
         working-directory: frontend
         run: npm ci
 
+      - name: Debug Path
+        run: ls -R
+
       - name: Lint frontend
         working-directory: frontend
         run: npm run lint
