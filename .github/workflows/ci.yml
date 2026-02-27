@@ -32,7 +32,7 @@ jobs:
 
       - name: Lint frontend
         working-directory: frontend
-        run: npm run lint
+        run: npx next lint --dir src
 
       - name: Build frontend (smoke test)
         working-directory: frontend
