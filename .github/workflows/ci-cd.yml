@@ -7,9 +7,6 @@ on:
     branches: [main]
 
 jobs:
-  # ══════════════════════════════════════════
-  # 1. BUILD & TEST
-  # ══════════════════════════════════════════
   lint-and-test:
     name: 🔍 Build & Test
     runs-on: ubuntu-latest
@@ -18,7 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ── Frontend ──
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -34,7 +30,6 @@ jobs:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
         run: npm run build
 
-      # ── Backend ──
       - name: Install backend deps
         working-directory: BackendPortfolio
         env:
@@ -49,9 +44,6 @@ jobs:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
         run: npm test --if-present
 
-  # ══════════════════════════════════════════
-  # 2. DEPLOY FRONTEND → VERCEL
-  # ══════════════════════════════════════════
   deploy-frontend:
     name: 🚀 Deploy Frontend (Vercel)
     runs-on: ubuntu-latest
@@ -76,15 +68,14 @@ jobs:
 
       - name: Build project
         working-directory: frontend
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel
         working-directory: frontend
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-  # ══════════════════════════════════════════
-  # 3. DEPLOY BACKEND → RAILWAY
-  # ══════════════════════════════════════════
   deploy-backend-railway:
     name: 🚀 Deploy Backend (Railway)
     runs-on: ubuntu-latest
@@ -102,4 +93,4 @@ jobs:
         working-directory: BackendPortfolio
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --service portfolio-backend
+        run: railway up --service creative-exploration
