@@ -102,4 +102,4 @@ jobs:
         working-directory: BackendPortfolio
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }} --project ${{ secrets.RAILWAY_PROJECT_ID }} --environment production
+        run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }} --project ${{ secrets.RAILWAY_PROJECT_ID }} --environment production --detach
