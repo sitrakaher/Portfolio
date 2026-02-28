@@ -83,8 +83,23 @@ jobs:
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
   # ══════════════════════════════════════════
-  # 3. DEPLOY BACKEND → RAILWAY (auto via GitHub)
+  # 3. DEPLOY BACKEND → RAILWAY
   # ══════════════════════════════════════════
-  # Railway est connecté directement au repo GitHub
-  # et déploie automatiquement à chaque push sur main
-  # Aucune action nécessaire ici
+  deploy-backend-railway:
+    name: 🚀 Deploy Backend (Railway)
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy to Railway
+        working-directory: BackendPortfolio
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: railway up --service creative-exploration
