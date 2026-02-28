@@ -3,6 +3,7 @@ import "../../../app/globals.css";
 import { api} from '@/lib/api';
 import { useRouter } from 'next/router';
 import { useState } from 'react'
+import { toast } from "react-toastify";
 
 const LoginView = () => {
 
@@ -17,7 +18,7 @@ const LoginView = () => {
       localStorage.setItem("token", res.data.token);
       router.push("/admin/Dashboard/DashboardTechnologies");
     } catch {
-      alert("Accès refusé");
+      toast.error("ACCES REFUSE");
     }
   }
   return (

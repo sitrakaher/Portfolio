@@ -12,7 +12,6 @@ router.post("/ajouter", auth,adminOnly, TechnologieController.create);
 
 router.put('/modifier/:id', auth, adminOnly, TechnologieController.update);
 
-
 router.delete('/supprimer/:id', auth, adminOnly, TechnologieController.delete);
 
 module.exports = router
