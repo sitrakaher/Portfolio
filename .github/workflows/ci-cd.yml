@@ -93,4 +93,4 @@ jobs:
         working-directory: BackendPortfolio
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --service creative-exploration
+        run: railway up --service creative-exploration --project ${{ secrets.RAILWAY_PROJECT_ID }}
