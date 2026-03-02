@@ -3,7 +3,6 @@ import { api } from '@/lib/api';
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import BorderGradient from '../UI/borderGradient';
 
 type Projects ={
     title:string,
@@ -93,7 +92,7 @@ const Projet = () => {
                                         Consulter
                                     </Link>}
                                     </div>
-                                    <button className='border [border-image:linear-gradient(to-rignt'>Details</button>
+                                    <button className='border px-2 py-4'>Details</button>
                                 </div>
                             </div>
                         </div>
