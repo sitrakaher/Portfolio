@@ -3,6 +3,7 @@ import { api } from '@/lib/api';
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import BorderGradient from '../UI/borderGradient';
 
 type Projects ={
     title:string,
@@ -77,15 +78,22 @@ const Projet = () => {
                                         </Link> 
                                     </div>
                                 </div>
-                                <div className='flex items-center justify-between'>
-                                    {projet.type === "PORTFOLIO" 
-                                    ? <p className='bg-linear-to-r from-cyan-600 text-white flex items-center justify-center to-cyan-300 px-4 py-1 rounded w-auto md:w-fit text-center'>Vous y êtes</p>
+                                <div className='flex items-center justify-between gap-2'>
+                                    <div>
+                                        {projet.type === "PORTFOLIO" 
+                                    ? 
+                                    <p className='bg-linear-to-r from-cyan-600 text-white flex items-center justify-center to-cyan-300 px-4 py-1 rounded w-auto md:w-fit text-center'>
+                                        <span >
+                                            Vous y êtes
+                                        </span>
+                                    </p>
                                     : projet.type === "LOCAL"
-                                    ? <p className='bg-linear-to-r from-cyan-600 text-white flex items-center justify-center to-cyan-300 px-4 py-1 rounded w-auto md:w-fit text-center'>Local</p> 
-                                    : <Link href={projet.lienProjet} className='bg-linear-to-r from-cyan-600 text-white flex items-center justify-center to-cyan-300 px-4 py-1 rounded w-auto md:w-fit text-center'>
+                                    ? <p className='bg-linear-to-r from-cyan-600 to-cyan-300 text-white flex items-center justify-center px-4 py-1 rounded w-auto md:w-fit text-center'>Local</p> 
+                                    : <Link href={projet.lienProjet} className='bg-linear-to-r from-cyan-600 to-cyan-300 text-white flex items-center justify-center px-4 py-1 rounded w-auto md:w-fit text-center'>
                                         Consulter
                                     </Link>}
-                                    <button>Details</button>
+                                    </div>
+                                    <button className='border [border-image:linear-gradient(to-rignt'>Details</button>
                                 </div>
                             </div>
                         </div>

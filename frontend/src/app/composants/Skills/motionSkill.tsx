@@ -42,7 +42,7 @@ export default function MotionSkill({
         isMobile ?(
         visible 
           ? { opacity: 1, x: 0, y: 0 }
-          : { opacity: 0, x: x * 30, y: y * 30}) : (
+          : { opacity: 0, x: x * 40, y: y * 40}) : (
             visible
           ? { opacity: 1, x: 0, y: 0 }
           : { opacity: 0, x: x * 80, y: y * 80}

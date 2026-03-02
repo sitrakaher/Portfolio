@@ -6,7 +6,7 @@ const compression = require('compression');
 const pinoHttp = require('pino-http');
 const { logger } = require('../lib/logger');
 const PORT = process.env.PORT || 4000;
-const allowedOrigin =process.env.FRONTEND_URL || 'http://localhost:3000';
+const allowedOrigin =process.env.FRONTEND_URL ?? 'http://localhost:3000';
 
 
 const app = express();

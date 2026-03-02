@@ -51,7 +51,7 @@ export default function SkillsCircle({ skills }: SkillsCircleProps) {
       </motion.div>
  
       {skills.map((skill, index) => {
-        const angle = (index / total) * (2 * Math.PI) - Math.PI / 2;
+        const angle = (index / total) * (2 * Math.PI) - Math.PI /2;
         const x = Math.cos(angle)
         const y = Math.sin(angle)
  
