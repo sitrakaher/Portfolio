@@ -9,12 +9,14 @@ async function main() {
 
     const password = await bcrypt.hash(adminPassword, 10);
 
+    if(!adminEmail || !adminPassword || !role) return "Tous les champs sont requis";
+
     await prisma.user.upsert({
       where: {email: adminEmail},
       update:{
         password:password,
         role:role
-      }, // on ne change rien s'il existe déjà
+      }, // si l'email existe déjà, on met à jour le role et le password si necessaire
       create:{
             email: adminEmail,
             password,

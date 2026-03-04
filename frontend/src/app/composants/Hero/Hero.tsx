@@ -21,11 +21,11 @@ function Hero() {
                 <div className='text-lg'>
                 <p className='text-lg'>Jeune 24ans, développeur FullStack JavaScript spécialsé en Nextjs • Reactjs • Node.js.</p>
                 <p className='text-lg'>Je conçois des applications web modernes, perfromantes, sécurisées et scalables.</p>
-                <p>Besoin d'un développeur Nextjs/Reactjs/Nodejs, toujours disponible.</p>
+                <p>Besoin d'un développeur Nextjs • Reactjs • Nodejs, toujours disponible.</p>
                 <p><Link href="/#contact" className='underline font-bold' >Contactez-moi</Link>{" "} pour votre projet.</p>
                 </div>
               </div>
-              <Link href="/file/rakotoarivony sitraka heriniaina.pdf" download className='bg-linear-to-r from-cyan-600 to-cyan-300 flex items-center justify-center flex-row-reverse gap-2 hover:scale-105 px-6 py-2 rounded md:w-fit text-center text-white shadow-cyan-300 shadow-2xl'>
+              <Link href="/file/rakotoarivony_sitraka_heriniaina.pdf" download className='bg-linear-to-r from-cyan-600 to-cyan-300 flex items-center justify-center flex-row-reverse gap-2 hover:scale-105 px-6 py-2 rounded md:w-fit text-center text-white shadow-cyan-300 shadow-2xl'>
                 <h3>Téléchager mon CV </h3>
                 <Image src="/assets/downloads.png" alt="Download" width={32} height={32}/>
               </Link>

@@ -52,20 +52,21 @@ const Projet = () => {
             <div  className='flex flex-col md:flex-row p-10 gap-10'>
             {loading ? <span className='text-center text-balance md:text-xl'>Chargments des projets encours...</span>: projects.map((projet) =>(
                 <div key={projet.title} className='relative group perspective-midrange'>
-                    <div className='relative min-h-92 origin-bottom rounded-tr-2xl rounded-bl-2xl transition-all duration-500 ease-in-out hover:rotate-x-12 hover:brightness-100 max-w-80 h-auto bg-white flex flex-col justify-between items-center'>
-                        <Image 
-                            src={projet.image} 
+                    <div className='relative min-h-92 h-auto origin-bottom rounded-tr-2xl rounded-bl-2xl transition-all duration-500 ease-in-out hover:rotate-x-12 hover:brightness-100 max-w-80 min-w-80 bg-white flex flex-col justify-between items-center'>
+                        <div className='relative h-56 w-72 flex items-center'>
+                            <Image
+                            src={projet.image}
                             alt='description'
-                            width={512} 
-                            height={512}
+                            fill
                             className='flex justify-center items-center p-6'
                         />
+                        </div>
                         <div className='relative object-contain bg-cyan-950 w-full text-white flex flex-col justify-between rounded-bl-2xl min-h-46 overflow-hidden'>
                             <h2 className='flex items-center justify-center font-semibold text-center p-2'>
                                 {projet.title}
                             </h2>
                             <div className='flex flex-col items-center py-2 gap-2'>
-                                <div className='flex items-center'>
+                                <div className='flex items-center gap-2'>
                                     <span className='flex flex-wrap items-center justify-center flex-1 hover:scale-105'>
                                         {projet.technologies?.map((t)=>(
                                             <Image key={t.id} src={t.href} alt={t.title} width={24} height={24} className='rounded-full'/>
@@ -92,7 +93,7 @@ const Projet = () => {
                                         Consulter
                                     </Link>}
                                     </div>
-                                    <button className='border px-2 py-4'>Details</button>
+                                    <button className='border py-1 px-4 rounded'>Details</button>
                                 </div>
                             </div>
                         </div>
