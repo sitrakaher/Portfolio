@@ -9,8 +9,6 @@ async function main() {
 
     const password = await bcrypt.hash(adminPassword, 10);
 
-    if(!adminEmail || !adminPassword || !role) return "Tous les champs sont requis";
-
     await prisma.user.upsert({
       where: {email: adminEmail},
       update:{
