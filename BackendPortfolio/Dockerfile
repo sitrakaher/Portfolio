@@ -27,7 +27,7 @@ FROM node:24-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=4000
+ENV PORT=8080
 
 # Créer un utilisateur non-root
 RUN addgroup --system --gid 1001 nodejs && \
@@ -41,7 +41,7 @@ COPY --from=builder /app/package*.json ./
 
 USER expressjs
 
-EXPOSE 4000
+EXPOSE 8080
 
 RUN 
 
