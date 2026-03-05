@@ -28,8 +28,11 @@ const Contact = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+      resolver: zodResolver(contactSchema),
+      mode: "onChange",        // 🔹 valide à chaque modification
+      reValidateMode: "onChange", // 🔹 revalide dès que l'utilisateur modifie un champ
   });
+
 
   // 3. Fonction d'envoi
   const onSubmit = async (data: ContactFormData) => {
