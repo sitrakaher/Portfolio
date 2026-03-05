@@ -43,6 +43,4 @@ USER expressjs
 
 EXPOSE 8080
 
-RUN 
-
 CMD npx prisma db seed && node src/server/app.js
