@@ -85,7 +85,7 @@ const Contact = () => {
               <input 
                 {...register("email")} // Remplace value et onChange
                 type="email" 
-                placeholder='Votre email' 
+                placeholder='Votre email'   
                 className={`border-b p-4 focus:outline-none focus:bg-cyan-800 transition-colors ${
                   errors.email ? "border-b-red-500 shadow-[0_4px_10px_rgba(239,68,68,0.2)]" : "border-b-cyan-500"
                 }`}
