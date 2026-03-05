@@ -2,11 +2,14 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 const { logger } = require('../lib/logger');
 
+const emailUser = process.env.EMAIL_USER;
+const appPassword = process.env.EMAIL_PASS;
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: emailUser,
+    pass: appPassword,
   },
 });
 
@@ -18,13 +21,13 @@ transporter.verify()
 
 //Message directe gmail
 const sendNotificationEmail = async (email, message) => {
-  if (!process.env.EMAIL_USER) throw new Error("EMAIL_USER non défini");
+  if (!emailUser) throw new Error("EMAIL_USER non défini");
   if (!email) throw new Error("Email du contact non défini");
 
   try {
     await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, 
+      from: `"Portfolio Contact" <${emailUser}>`,
+      to: emailUser, 
       replyTo: email,
       subject: "Nouveau message Portfolio",
       html: `
@@ -45,7 +48,7 @@ const sendResponseMail = async (email, message, subject = "Développeur Fullstac
   if (!email) throw new Error("Destinataire non défini");
   try {
     await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      from: `"Portfolio Contact" <${emailUser}>`,
       to: email,
       subject,
       html: message,
@@ -58,11 +61,11 @@ const sendResponseMail = async (email, message, subject = "Développeur Fullstac
 };
 
 //message automatique au visiteur
-const sendAutoReply = async (name, email) => {
+const sendAutoReply = async (email) => {
   if (!email) throw new Error("Destinataire non défini");
   try {
     await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      from: `"Portfolio Contact" <${emailUser}>`,
       to: email,
       subject: "Merci pour votre message",
       html: `

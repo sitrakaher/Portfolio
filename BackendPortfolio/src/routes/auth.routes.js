@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
 const prisma = require("../../prisma/prisma");
 const rateLimit = require('express-rate-limit');
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const router = express.Router();
 
@@ -28,7 +30,7 @@ router.post('/login', loginLimiter, async (req, res, next)=>{
 
         const token = jwt.sign(
             {id: user.id, role:user.role},
-                process.env.JWT_SECRET,
+                JWT_SECRET,
             {expiresIn: '1h'}
         );
 

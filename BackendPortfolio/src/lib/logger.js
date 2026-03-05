@@ -1,11 +1,13 @@
+require('dotenv').config();
 const pino = require('pino');
 const pinoHttp = require('pino-http');
-
+const Log = process.env.LOG_LEVEL;
+const nodeEnv = process.env.NODE_ENV;
 // Logger principal
 const logger = pino({
-  level: process.env.LOG_LEVEL || 'info',
+  level: Log || 'info',
   transport:
-    process.env.NODE_ENV !== 'production'
+    nodeEnv !== 'production'
       ? {
           target: 'pino-pretty',
           options: {
