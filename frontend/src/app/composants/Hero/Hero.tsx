@@ -16,17 +16,23 @@ function Hero() {
               <div className='flex flex-col text-center md:text-left gap-6'>
                 <h1 className='text-black font-semibold flex flex-col'>
                   <span className='text-cyan-600 text-3xl md:text-5xl font-bold'>RAKOTOARIVONY Sitraka Heriniaina</span>
-                  <span className='font-bold text-2xl md:text-4xl'><br />Développeur FullStack Junior</span>
+                  <span className='font-bold text-2xl md:text-4xl'><br />Développeur Full-Stack JavaScript</span>
                 </h1>
                 <div className='text-lg'>
-                <p className='text-lg'>Jeune 24ans, développeur FullStack JavaScript spécialsé en Nextjs • Reactjs • Node.js.</p>
-                <p className='text-lg'>Je conçois des applications web modernes, perfromantes, sécurisées et scalables.</p>
-                <p>Besoin d'un développeur Nextjs • Reactjs • Nodejs, toujours disponible.</p>
-                <p><Link href="/#contact" className='underline font-bold' >Contactez-moi</Link>{" "} pour votre projet.</p>
+                <p className='text-lg'>Développeur Full-Stack JavaScript spécialisé en <strong>Next.js • React • Node.js</strong>.</p>
+                <p className='text-lg'>
+                  Je conçois des applications web modernes, rapides et sécurisées,
+                  pensées pour offrir une excellente expérience utilisateur.</p>
+                <p>
+                  Passionné par le développement et toujours en apprentissage,
+                  je cherche à contribuer à des projets innovants
+                  et à créer des produits utiles et impactants.
+                </p>
+                <p><Link href="/#contact" className='underline font-bold' >Discutons de votre projet.</Link></p>
                 </div>
               </div>
               <Link href="/file/Rakotoarivony_sitraka_heriniaina.pdf" download className='bg-linear-to-r from-cyan-600 to-cyan-300 flex items-center justify-center flex-row-reverse gap-2 hover:scale-105 px-6 py-2 rounded md:w-fit text-center text-white shadow-cyan-300 shadow-2xl'>
-                <h3>Téléchager mon CV </h3>
+                <h3>Télécharger mon CV </h3>
                 <Image src="/assets/downloads.png" alt="Download" width={32} height={32}/>
               </Link>
             </div>
