@@ -64,8 +64,8 @@ Il présente mes compétences, mes projets et mon parcours en développement web
 ### 1️⃣ Cloner le projet
 
 ```bash
-git clone https://github.com/ton-username/ton-repo.git
-cd ton-repo
+git clone https://github.com/sitrakaher/portfolio.git
+cd portfolio
 ```
 
 ### 2️⃣ Configurer les variables d’environnement
