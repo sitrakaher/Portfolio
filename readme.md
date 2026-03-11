@@ -22,7 +22,7 @@
 Ce projet est un **portfolio personnel moderne** développé avec une stack JavaScript/TypeScript complète.
 Il présente mes compétences, mes projets et mon parcours en développement web.
 
-🔗 **Demo live :** http://portfolio.test
+🔗 **Website :** https://frontend-one-lime-66.vercel.app
 
 ---
 
@@ -99,11 +99,8 @@ docker-compose up --build
 ---
 
 ## 🚀 Améliorations futures
-
-* [ ] Ajout de tests automatisés
-* [ ] Optimisation SEO
 * [ ] Mode sombre
-* [ ] Déploiement cloud
+* [ ] Ajout du bouton détails pour chaque projet
 
 ---
 
