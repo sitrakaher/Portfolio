@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-// 1. Schéma de validation : Plus besoin de Regex manuelle pour l'email !
+// 1. Schéma de validation
 const contactSchema = z.object({
   email: z.string().min(1, "L'email est requis").email("Adresse email invalide"),
   message: z.string().min(5, "Le message doit contenir au moins 5 caractères"),

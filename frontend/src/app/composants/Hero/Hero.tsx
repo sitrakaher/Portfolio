@@ -3,7 +3,7 @@ import { useSplitReveal } from '@/Hooks/observer';
 import Image from 'next/image'
 import Link from 'next/link'
 function Hero() {
-
+   //l'appelle du hooks pour suivre la visibilité du section hero
   const visible = useSplitReveal("hero");
 
   return (
