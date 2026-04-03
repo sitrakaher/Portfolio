@@ -23,7 +23,7 @@ function Hero() {
                 <p className='text-lg'>
                   Je conçois des applications web modernes, rapides et sécurisées,
                   pensées pour offrir une excellente expérience utilisateur.</p>
-                <p>
+                <p> 
                   Passionné par le développement et toujours en apprentissage,
                   je cherche à contribuer à des projets innovants
                   et à créer des produits utiles et impactants.
