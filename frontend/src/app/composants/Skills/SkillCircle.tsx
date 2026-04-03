@@ -46,7 +46,7 @@ export default function SkillsCircle({ skills }: SkillsCircleProps) {
         className="absolute justify-center flex flex-col items-center"
       >
         <span className="text-balance sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center">
-          Mes Outils en<br />Développement Full Stack
+          Mes Outils en <br /> Développement Full Stack
         </span>
       </motion.div>
  
@@ -73,8 +73,9 @@ export default function SkillsCircle({ skills }: SkillsCircleProps) {
               visible={visible}
             />
           </div>
-        );
+        )
       })};
     </div>
-  );
+  )
+  ;
 }

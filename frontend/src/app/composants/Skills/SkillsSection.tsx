@@ -60,7 +60,8 @@ export default function SkillsSection() {
         console.error(err);
         setError("Erreur lors du chargement des compétences favoris");
       } finally {
-        setLoading(false);
+        setLoading(false)
+        ;
       }
     };
     fetchSkills();

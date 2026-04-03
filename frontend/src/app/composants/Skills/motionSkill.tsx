@@ -98,5 +98,6 @@ export default function MotionSkill({
       </div>
       
     </motion.div>
-  );
+  )
+  ;
 }

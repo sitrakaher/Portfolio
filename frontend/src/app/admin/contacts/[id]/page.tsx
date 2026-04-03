@@ -65,10 +65,6 @@ const MessageDetailPage = () => {
             {modal && (
             <form action="" onSubmit={handleSubmit} className='absolute bg-gray-300 rounded p-10 m-20 flex flex-col items-center justify-center w-2xl'>
                 <h1 className='text-2xl lg:w-4xl flex items-center justify-center'>Répondre aux messages</h1>
-                {/* <div className='border-b w-full flex flex-col p-5'>
-                    <label htmlFor="objet">Objet</label>
-                    <input type="text" id='objet' className='border-b p-2 focus:bg-gray-200 focus:outline-none'/>
-                </div> */}
                 <div className='w-full flex flex-col p-5'>
                     <label htmlFor="message">Message</label>
                     <textarea id='objet' className='border-b focus:bg-gray-200 focus:outline-none' value={message} onChange={e =>setMessage(e.target.value)}/>

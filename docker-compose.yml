@@ -30,7 +30,6 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=4000
-      # ⚠️  Remplace par ton vrai MongoDB Atlas URI (ou via .env)
       - DATABASE_URL=${DATABASE_URL}
       - JWT_SECRET=${JWT_SECRET}
     env_file:
